@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFEST LOGIN</title>
+    <link rel="stylesheet" href="GFEST LOGIN.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <h1>WEL<span>COME</span> BACK!</h1>
+    <form id="loginForm" action="GFEST LOGIN PHP.php" method="post">
+        <input type="text" id="username" name="username" placeholder="Enter Username" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <button type="submit" class="submit" required>Login</button>
+        <hr>
+        <button type="button-link" class="link" required>Login with Google
+        </button>
+      </form>
+    </div>
+      <script src="GFEST.js"></script>
+</body>
+</html>
+
+
+
+
+<!---CSS-->
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+#loginForm {
+  width: 300px;
+  margin: 0 auto;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0px solid transparent;
+  background-color: rgb(49, 47, 47); 
+}
+form{
+  padding-top: 18%;
+}
+body{
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #222327;
+}
+.container{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px;
+  border: 1px solid rgb(2, 2, 2);
+  border-radius: 8px;
+  background-color: rgb(25, 25, 28);
+  box-shadow: 0px 0px 5px black;
+}
+.submit{
+  width: 300px;
+  border-radius: 10px;
+  border: 0px solid transparent;
+  padding: 10px 20px;
+  background-color: red;
+  color: black;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+.submit:hover{
+  color: red;
+  background-color: black;
+  transition: .2s;
+}
+h1{
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+span{
+  color: red;
+}
+.link{
+  width: 300px;
+  background-color: white;
+  margin-top: 15px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 0px solid transparent;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
+
+<!--JS-->
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  if (username && password) {
+    // Fields are not empty, perform login
+    this.submit();
+  } else {
+    alert("Please enter both username and password.");
+  }
+});
+
+
+<!--php-->
+
+<?php
+// Retrieve username and password from form submission
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Perform authentication or database checks
+// Example:///
+if ($username === 'weng' && $password === '1234') {
+  // Login successful, redirect to your website
+  header("Location: GFEST.html");
+  exit;
+} else {
+  // Login failed, redirect back to the login page
+  header("Location: GFEST LOGIN.html");
+  exit;
+}
+?>
+
+
